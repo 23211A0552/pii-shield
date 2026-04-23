@@ -1,0 +1,147 @@
+# =============================================================================
+# PII Shield - .gitignore
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# SECURITY - Never commit secrets or credentials
+# -----------------------------------------------------------------------------
+*.env
+.env
+.env.*
+!.env.example
+firebase-service-account.json
+**/firebase-service-account*.json
+service-account*.json
+google-credentials*.json
+*.pem
+*.key
+*.p12
+
+# -----------------------------------------------------------------------------
+# Python / Backend
+# -----------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+develop-eggs/
+.installed.cfg
+lib/
+lib64/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+.env/
+.venv/
+
+# Pytest / Testing
+.pytest_cache/
+.cache/
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+nosetests.xml
+test-results/
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Debug & log files
+*.log
+debug_out.txt
+test.txt
+*.tmp
+
+# ML / Model files (large binaries)
+*.h5
+*.pkl
+*.joblib
+*.pt
+*.pth
+*.onnx
+backend/models/*.bin
+
+# Data directory (may contain uploaded PII documents)
+backend/data/
+data/
+
+# -----------------------------------------------------------------------------
+# Node.js / Frontend
+# -----------------------------------------------------------------------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Build output
+frontend/dist/
+dist/
+build/
+
+# Vite cache
+.vite/
+.vite-cache/
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.DS_Store
+Thumbs.db
+
+# ESLint cache
+.eslintcache
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Optional: keep package-lock.json (recommended for reproducible builds)
+# package-lock.json
+
+# -----------------------------------------------------------------------------
+# OS-specific
+# -----------------------------------------------------------------------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# -----------------------------------------------------------------------------
+# Firebase
+# -----------------------------------------------------------------------------
+.firebase/
+firebase-debug.log
+firestore-debug.log
+ui-debug.log

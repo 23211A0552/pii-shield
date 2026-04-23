@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: pii-shield-backend
+    env: python
+    buildCommand: |
+      pip install -r requirements.txt
+      python -m spacy download en_core_web_sm
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: FIREBASE_CREDENTIALS_JSON
+        sync: false
+      - key: FIREBASE_STORAGE_BUCKET
+        sync: false
+      - key: ALLOWED_ORIGINS
+        sync: false
+      - key: ENCRYPTION_KEY
+        sync: false
