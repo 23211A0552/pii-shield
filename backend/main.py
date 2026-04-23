@@ -40,12 +40,13 @@ app.add_middleware(
 
 @app.exception_handler(Exception)
 async def global_exception_handler(request: Request, exc: Exception):
-    # This ensures CORS headers are present even on errors
+    # Return CORS headers on errors using the first allowed origin
+    origin = _allowed_origins[0] if _allowed_origins else "*"
     return JSONResponse(
         status_code=500,
         content={"detail": str(exc)},
         headers={
-            "Access-Control-Allow-Origin": "http://localhost:5173",
+            "Access-Control-Allow-Origin": origin,
             "Access-Control-Allow-Credentials": "true",
             "Access-Control-Allow-Methods": "*",
             "Access-Control-Allow-Headers": "*",
